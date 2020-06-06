@@ -1,4 +1,7 @@
+var Colors = ["#222629", "#86c232", "white", "gray"];	//One color for each section
+
 class StickyNavigation {
+	
 	
 	constructor() {
 		this.currentId = null;
@@ -16,7 +19,7 @@ class StickyNavigation {
 	
 	onTabClick(event, element) {	//Scroll when link is clicked
 		event.preventDefault();	//Block standard action
-		let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
+		let scrollTop = $(element.attr('href') + ' h1:first-child').offset().top - this.tabContainerHeight - 100;
 		$('html, body').animate({ scrollTop: scrollTop }, 600);
 	}
 	
@@ -27,7 +30,7 @@ class StickyNavigation {
 	
 	onResize() {
 		if(this.currentId) {
-			this.setSliderCss();
+			this.setCss();
 		}
 	}
 	
@@ -61,12 +64,12 @@ class StickyNavigation {
 		if(this.currentId != newCurrentId || this.currentId === null) {
 			this.currentId = newCurrentId;
 			this.currentTab = newCurrentTab;
-			this.setSliderCss();
+			this.setCss();
 		}
 	}
 	
-	//Show the slider
-	setSliderCss() {
+	//Show the slider and change nav link
+	setCss() {
 		let width = 0;
 		let left = 0;
 		
@@ -77,8 +80,31 @@ class StickyNavigation {
 		
 		$('nav span').css('width', width);
 		$('nav span').css('left', left);
+		
+		let currentId = this.currentId;
+		$('nav a').each(function() { // Change the color of nav link
+			let id = $(this).attr('href');
+			
+			if(id == currentId) {
+				$(this).css('color', Colors[2]);
+			}
+			else{
+				$(this).css('color', Colors[0]);
+			}
+			
+		});
+		
 	}
 	
 }
 
 new StickyNavigation();
+
+$(function() {
+	$( "#dialog-1" ).dialog({
+    	autoOpen: false,  
+    });
+    $( "#phone" ).click(function() {
+    	$( "#dialog-1" ).dialog( "open" );
+    });
+});
