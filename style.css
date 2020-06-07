@@ -19,6 +19,12 @@ a {
   	text-decoration: none;
 }
 
+
+/**********************************************************
+GENERAL CSS
+***********************************************************/
+
+/*Center and flex layout*/
 header, section{
 	display: flex; /* fill all space */
 	flex-direction: column; /* row sequence */
@@ -29,19 +35,29 @@ header, section{
 	padding: 0 2em;
 }
 
-.subsection-title-container, p{
+/* Width section */
+.subsection-title-container, p, .skill-container{ 
 	width: 1200px;
 }
 
+/**********************************************************
+HEADER CSS
+***********************************************************/
+header{
+	height: 100vh; /* 100% of the viewport */
+	min-height: 900px;
+}
+
+/* Center header text */
 header>p{
 	text-align: center;
 }
 
+/****** Language flags css ******/
 #topcorner{
 	position:absolute;
 	top:0;
 	right:0;
-	
 }
 
 #topcorner>a{
@@ -53,6 +69,11 @@ header>p{
 	height: 25px;
 }
 
+.language-icon>img:hover{
+	opacity: 0.5;
+}
+
+/****** Personal info css ******/
 #email, #cognome{
 	color: var(--color-nav);
 }
@@ -76,6 +97,7 @@ header>p{
 	padding: 15px;
 }
 
+/****** Icon header css ******/
 #social-icons{
 	display: flex;
 	margin-top: 50px;
@@ -104,20 +126,72 @@ header>p{
 	cursor: pointer;
 }
 
-#section1, #section2, #section3, #section4{
-	min-height: 100vh; /* 100% of the viewport */
+/****** Navbar css ******/
+nav {
+	display: flex;
+	flex-direction: row;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	background: var(--color-nav);
+	z-index: 10;
+	color: var(--bg-color);
+}
+
+.fix_top {
+	position: fixed;
+	top: 0;
+}
+
+nav>a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	color: var(--color-nav-text);
+	transition: all 0.5s ease;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	
+}
+
+nav>a:hover {
+	color: white !important;
+	transition: all 0.5s ease;
+	opacity: 0.5;
+}
+
+nav>span {
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	height: 6px;
+	background: var(--color-text);
+	transition: left 0.3s ease;
+}
+
+/**********************************************************
+SECTION CSS
+***********************************************************/
+#section1, #section3, #section4{
+	height: 100vh; /* 100% of the viewport */
+	min-height: 1080px;
 }
 
 #section2{
-	min-height: 150vh;
+	height: 150vh;
+	min-height: 1620px;
+}
+
+#section3{
+	height: 125vh;
+	min-height: 1350px;
 }
 
 main{
 	transition: background-color .3s linear;
-}
-
-header, footer{
-	height: 100vh; /* 100% of the viewport */
 }
 
 header>h1{
@@ -166,6 +240,69 @@ p{
 	text-align: left;
 }
 
+/**********************************************************
+SKILL SECTION LIST CSS
+***********************************************************/
+.skill-container{
+	display: flex;
+    align-items: center;
+}
+
+.skill-icon-container{
+	width: 120px;
+}
+
+.bar-container{
+	height: 75px;
+	display: flex;
+    align-items: center;
+	width: 80%;
+}
+
+/* Container for skill bars */
+.bar {
+	background-color: var(--bg-color); /* Grey background */
+	box-shadow: 0 0 10px 0 var(--color-nav);
+	border-radius: 50px;
+	width: 100%;
+}
+
+.skills {
+	text-align: center; /* Right-align text */
+	padding-top: 10px; /* Add top padding */
+	padding-bottom: 10px; /* Add bottom padding */
+	color: var(--color-text); /*text color*/
+	background-color: var(--color-nav);
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
+	font-size: 1rem;
+}
+
+.beginner {width: 25%;}
+.intermediate {width: 50%;}
+.senior {width: 75%;}
+.guru {width: 100%; border-radius: 50px;}
+
+/* tooltip*/
+.tooltiptext {
+  	visibility: hidden;
+  	background-color: black;
+  	color: var(--color-text);
+  	text-align: center;
+  	border-radius: 6px;
+  	padding: 5px;
+	font-size: 0.8rem;
+  	/* Position the tooltip */
+  	position: absolute;
+  	z-index: 1;
+}
+
+.skill-icon-container:hover .tooltiptext {
+  visibility: visible;
+}
+/**********************************************************
+CERTIFICATION LIST CSS
+***********************************************************/
 .fi-xnsuxl-cup-solid{
 	color: gold;
 	font-size: 20px;
@@ -174,56 +311,15 @@ p{
 
 .certification{
 	margin: 5px;
-	width: 800px;
+	width: 900px;
 }
 
 .fi-xtluxl-file-pdf{
 	color: var(--color-text);
 }
 
-nav {
-	display: flex;
-	flex-direction: row;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 70px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-	background: var(--color-nav);
-	z-index: 10;
-	color: var(--bg-color);
-}
-
-.fix_top {
-	position: fixed;
-	top: 0;
-}
-
-nav>a {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 1;
-	color: var(--color-nav-text);
-	transition: all 0.5s ease;
-	font-size: 1.2rem;
-	text-transform: uppercase;
-	
-}
-
-nav>a:hover {
-	color: white !important;
-	transition: all 0.5s ease;
+.fi-xtluxl-file-pdf:hover{
 	opacity: 0.5;
-}
-
-nav>span {
-	position: absolute;
-	bottom: 0;
-	width: 0;
-	height: 6px;
-	background: var(--color-text);
-	transition: left 0.3s ease;
 }
 
 /***********************************
@@ -238,4 +334,40 @@ Overwrite css jQuery dialog
 	font-family: 'Share Tech Mono', monospace;
 	background: var(--bg-color) !important;
 	color: var(--color-text);
+}
+
+.ui-button:active{
+	background: var(--bg-color) !important;
+}
+
+/***********************************
+Manage small screen
+***********************************/
+@media (max-width: 1280px){
+	.subsection-title-container, p, .skill-container, .certification {
+		width: 800px !important;
+	}
+	
+	header{
+		min-height: 1080px !important; /* 100% of the viewport */
+	}
+	
+}
+
+@media (max-width: 960px){
+	.subsection-title-container, p, .skill-container, .certification {
+		width: 400px !important;
+	}
+	
+	header{
+		min-height: 1400px !important; /* 100% of the viewport */
+	}
+	
+	nav>a {
+		font-size: 1rem !important;
+	}
+	
+	.period{
+		float: left;
+	}
 }
