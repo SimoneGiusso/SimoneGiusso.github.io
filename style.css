@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap'); /* main info */
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500&display=swap'); /* address info */
 
 :root {
 	--bg-color: #222629;

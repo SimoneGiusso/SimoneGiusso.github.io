@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap'); /* Main style */
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,500'; /* Menu */
+
+:root {
+	--bg-color: white;
+	--color-nav: #0296e5;
+	--color-text: #222;
+	--color-title: #222;
+	--add-info: #89898e;
+}
+
+html {
+	box-sizing: border-box; /* padding and border are included in the width and height */
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body{
+  	margin: 0;
+  	padding: 0;
+	background: var(--bg-color);
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  	line-height: 1.5;
+}
+
+/************************************************************
+	NAVBAR
+*************************************************************/
+.container {
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 90%;
+}
+
+
+.hero * { /* Making sure everything in .hero sits above our :after elements (the dropdown menu disappear otherwise) */
+  	position: relative;
+  	z-index: 1;
+}
+
+/*************************************************************
+	mask menu
+*************************************************************/
+#masthead { /* Padding of the menu */
+  	padding: 2.5em 0;
+  	position: relative;
+}
+
+#masthead.is-active {
+  	box-shadow: 0 4px 4px var(--color-nav); /* shadow of the menu list */
+}
+
+#masthead:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-nav);
+	opacity: 0; /* hidden the list */
+	transition: opacity 0.3s ease;
+}
+
+#masthead.is-active:after {
+	opacity: 1;
+}
+
+/*************************************************************
+	hamburger/menu
+*************************************************************/
+.hamburger {
+  	background-color: transparent;
+  	border: 0;
+  	color: inherit;
+  	cursor: pointer;
+  	display: inline-block;
+  	float: left;*/
+  	font: inherit;
+  	margin: 0.8em 0 0;
+  	overflow: visible;
+  	outline: none; /* hidden border */
+  	padding: 0;
+  	text-transform: none;
+  	transition: opacity 0.15s;
+  	-webkit-appearance: none;
+}
+
+.hamburger:hover {
+  	opacity: 0.6; 
+}
+
+.hamburger-box {
+	width: 30px;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+}
+
+.hamburger-inner {
+	display: block;
+  	top: 50%;
+  	margin-top: -2px;
+}
+
+.hamburger-inner, 
+.hamburger-inner::before, 
+.hamburger-inner::after {
+	width: 30px;
+	height: 2px;
+  	background-color: var(--color-title);
+  	border-radius: 4px;
+  	position: absolute;
+  	transition-property: -webkit-transform;
+  	transition-property: transform;
+  	transition-property: transform, -webkit-transform;
+  	transition-duration: 0.15s;*/
+  	transition-timing-function: ease; 
+}
+
+#masthead.is-active .hamburger-inner, 
+#masthead.is-active .hamburger-inner::before, 
+#masthead.is-active .hamburger-inner::after {
+	background-color: var(--bg-color);
+}
+
+.hamburger-inner::before, 
+.hamburger-inner::after {
+  	content: "";
+  	display: block; 
+}
+
+.hamburger-inner::before {
+  	top: -6px; 
+}
+
+.hamburger-inner::after {
+  	bottom: -6px; 
+}
+
+.hamburger--boring.is-active .hamburger-inner {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg); 
+}
+
+.hamburger--boring.is-active .hamburger-inner::before {
+	top: 0;
+	opacity: 0; 
+}
+
+.hamburger--boring.is-active .hamburger-inner::after {
+	bottom: 0;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg); 
+}
+
+.hamburger-label {
+	color: var(--color-title);
+  	font-weight: 700;
+  	letter-spacing: 0.08em;
+  	line-height: 1;
+  	margin-left: 0.3125em;
+  	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5em;
+}
+
+#masthead.is-active .hamburger-label {
+  	color: var(--bg-color);
+}
+
+.hamburger-box,
+.hamburger-label {
+	vertical-align: middle;
+}
+
+/******************************************************
+ navigation list
+*******************************************************/
+
+#site-nav {
+	clear: both;
+  	display: flex;
+  	flex-direction: column; 
+  	height: 0;
+  	overflow: hidden;
+  	padding-top: 2.5em;
+}
+
+#site-nav.is-active {
+  	height: auto;
+  	overflow: visible;
+}
+
+
+@media screen and (min-width: 550px) {
+  #site-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  #site-nav .col {
+    flex: 0 0 50%;
+  } 
+}
+
+@media screen and (min-width: 768px) {
+  #site-nav .col {
+    flex: 0 0 33.333333333%;
+  } 
+}
+
+@media screen and (min-width: 960px) {
+  #site-nav {
+    flex-wrap: nowrap;
+  }
+  
+  #site-nav .col {
+    flex: 0 0 25%; /*With 4 columns full all width*/
+  } 
+  
+}
+
+#site-nav h4 {
+  	letter-spacing: 0.05em;
+  	text-transform: uppercase;
+	color: var(--bg-color);
+}
+
+#site-nav ul {
+  	list-style-type: none;
+  	margin-top: 1em;
+	padding-left: 0;
+}
+
+#site-nav li {
+	padding-bottom: 0.3em;
+}
+
+#site-nav li a {
+  	color: white;
+  	text-decoration: none;
+  /*transition: color 2.3s ease;*/
+}
+
+#site-nav li a:hover,
+#site-nav li a:focus {
+  	opacity: 0.5;
+}
+
+/***************************************************************
+search bar
+***************************************************************/
+
+#masthead-search {
+  	float: right;
+  	margin-top: 0.3em;
+  	width: 100%;
+  	max-width: 15em;
+  	position: relative;
+	-webkit-appearance: none;
+}
+
+#masthead-search input {
+  	background: transparent;
+  	border: none;
+  	border-color: var(--color-title);
+  	border-style: solid;
+  	border-width: 1.5px;
+  	border-radius: 50px;
+  	outline: none;
+  	width: 100%;
+	padding: 0.75em 1.125em;
+  	transition: border-color 0.3s ease;
+  	-webkit-appearance: none;
+	color: var(--color-text);
+}
+
+#masthead-search button {
+  	background: none;
+  	border: none;
+  	color: var(--color-title);
+  	font-size: 1.5em;
+  	padding: 0;
+  	position: absolute;
+  	top: 45%;
+  	right: 0.5em;
+  	transform: translateY(-50%);
+  	-webkit-appearance: none;
+}
+
+#masthead.is-active #masthead-search button {
+  	color: var(--bg-color);
+}
+
+#masthead.is-active #masthead-search input {
+  	border-color: var(--bg-color);
+	color: var(--bg-color);
+}
+
+#masthead-search ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--color-text);
+}
+
+#masthead-search :-moz-placeholder { /* Firefox 18- */
+   	color: var(--color-text);
+   	opacity:  1;
+}
+
+#masthead-search ::-moz-placeholder { /* Firefox 19+ */
+   color:    var(--color-text);
+   opacity:  1;
+}
+
+
+#masthead-search :-ms-input-placeholder {  /* IE 10+ */
+   color:    var(--color-text);
+}
+
+
+#masthead.is-active #masthead-search ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: var(--bg-color);;
+}
+
+#masthead.is-active #masthead-search ::-moz-placeholder { /* Firefox 19+ */
+   color:    var(--bg-color);
+   opacity:  1;
+}
+
+#masthead.is-active #masthead-search :-moz-placeholder { /* Firefox 18- */
+   color:    var(--bg-color);;
+   opacity:  1;
+}
+
+#masthead.is-active #masthead-search :-ms-input-placeholder {  /* IE 10+ */
+   color: var(--bg-color);
+}
+
+
+/**************************************************************
+animation list
+**************************************************************/
+#masthead .col {
+  opacity: 0;
+}
+
+
+#masthead.is-active .col { 
+  transform: translateY(40px);
+  transition: opacity 0.3s ease;
+  animation: fade-in-stagger 0.8s ease forwards;
+}
+
+#masthead.is-active .col:nth-child(1) {
+    -webkit-animation-delay: 0;
+}
+
+#masthead.is-active .col:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+}
+
+#masthead.is-active .col:nth-child(3) {
+    -webkit-animation-delay: 0.2s;
+}
+
+#masthead.is-active .col:nth-child(4) {
+    -webkit-animation-delay: 0.3s;
+}
+
+#masthead.is-active .col:nth-child(5) {
+    -webkit-animation-delay: 0.4s;
+}
+
+@keyframes fade-in-stagger {
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+/*********************************************
+home link
+*********************************************/
+#home{
+	position: absolute;
+	text-align: center;
+	color: var(--color-title);
+  	font-weight: 700;
+  	letter-spacing: 0.08em;
+  	line-height: 1;
+  	margin-left: 0.3125em;
+  	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.3em;
+	top: 54px;
+	width: 200px;
+	z-index: 20;
+    left: 50%;
+	margin-left: -100px;
+}
+
+/* Hidden link when menu appear*/
+#home.is-active{
+	visibility: hidden;
+}
+
+#home a{
+	text-decoration: none;
+	color: var(--color-title);
+}
+
+#home a:hover {
+	opacity: 0.6;
+}
+
+@media screen and (max-width: 960px) {
+	#home{
+		top: 125px;
+	}
+}

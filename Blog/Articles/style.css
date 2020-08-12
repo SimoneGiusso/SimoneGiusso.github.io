@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap'); /* Main style */
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,500'; /* Menu */
+
+:root {
+	--bg-color: white;
+	--color-nav: #0296e5;
+	--color-text: #222;
+	--color-title: #222;
+	--add-info: #89898e;
+	--color-sub-title: dimgray;
+}
+
+html {
+	box-sizing: border-box; /* padding and border are included in the width and height */
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body{
+  	margin: 0;
+  	padding: 0;
+	background: var(--bg-color);
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  	line-height: 1.5;
+}
+
+/**************************************************************
+	MAIN SECTION
+**************************************************************/
+.main {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	display: flex; /* fill all space */
+	justify-content: center; /* vertical align*/
+	padding: 50px;
+	text-align: justify;
+}
+
+.container-main {
+	width: 960px;
+	counter-reset: section;
+}
+
+h1{
+	font-size: 4em;
+	text-align: justify;
+	color: var(--color-title);
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.article-info{
+	font-family: 'Roboto', sans-serif;
+	margin-bottom: 40px;
+	font-weight: 500;
+}
+
+#created-date, #update-date{
+	display: inline;
+}
+
+#created-date{
+	color: var(--add-info);
+}
+
+#update-date{
+	color: var(--color-nav);
+}
+
+h2{
+	text-transform: uppercase;
+	font-size: 2.0em;
+	font-weight: 600;
+	color: var(--color-title);
+	counter-reset: subsection;
+}
+
+h2::before{
+	counter-increment: section;
+	content: counter(section) ". ";
+}
+
+h3{
+	text-transform: uppercase;
+	font-size: 1.5em;
+	font-weight: 600;
+	color: var(--color-sub-title);
+}
+
+h3::before{
+	counter-increment: subsection;
+	content: counter(section) "." counter(subsection) " ";
+}
+
+.text{
+	color: var(--color-text);
+	font-size: 1.25em;
+	line-height: 2.0em;
+}
+
+/* For center image */
+.center {
+	margin-top: 20px;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+figcaption{
+	margin-left: auto;
+  	margin-right: auto;
+	text-align: center;
+}
+
+/************************************************
+Button
+*************************************************/
+#button {
+  display: inline-block;
+  background-color: var(--color-nav);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  transition: background-color .3s, opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: var(--bg-color);
+}
+
+#button:hover {
+  cursor: pointer;
+  background-color: var(--color-sub-title);
+}
+
+#button:active {
+  background-color: #555;
+}
+
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bibliography{
+	margin-top: 75px;
+	margin-bottom: 75px;
+}
+
+.bibliography>h2::before{
+	content: "";
+}
+
+/*********************************************************
+FOOTER
+**********************************************************/
+.footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+
+.copyright{
+	height: 60px;
+	background-color: var(--color-nav);
+	color: var(--bg-color);
+	font-family: 'Roboto', sans-serif;
+	line-height: 60px;
+}
+
+
+/*********************************************************
+CODE LISTING
+**********************************************************/
+
+/* Style the tab */
+.tab {
+  	overflow: hidden;
+  	border: 1px solid #ccc;
+  	background-color: #f1f1f1;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	margin-top: 20px;
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.8em;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  	display: none;
+ 	font-size: 0.75em;
+	margin-bottom: 20px;
+}
+
+
+/*********************************************************
+BIBLIOGRAPHY and other link
+**********************************************************/
+
+.bibliography>ul{
+	list-style-type: none;
+	margin: 0;
+}
+
+ul.dashed {
+  list-style-type: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+ul.dashed > li {
+  	text-indent: -5px;
+	line-height: 2.25;
+}
+
+ul.dashed > li:before {
+  	content: "- ";
+}
+
+ul.dashed > li > a {
+	color: var(--color-text);
+}
+
+ul.dashed > li > a:hover,  div.text > a:hover{
+	color: var(--color-nav);
+}
+
+ul.dashed > li > a:active, div.text > a:active {
+  	color: var(--color-nav);
+}
+
+div.text > a{
+	text-decoration: underline;
+	cursor: pointer;
+}
