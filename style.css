@@ -100,7 +100,6 @@ header>p{
 /****** Icon header css ******/
 #social-icons{
 	display: flex;
-	margin-top: 50px;
 }
 
 .container-icon{
@@ -237,7 +236,7 @@ p{
 	line-height: 2.5rem;
 	color: var(--color-text);
 	font-weight: 400;
-	text-align: left;
+	text-align: justify;
 }
 
 /**********************************************************
