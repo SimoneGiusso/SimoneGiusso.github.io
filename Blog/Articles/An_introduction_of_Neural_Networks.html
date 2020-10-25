@@ -52,7 +52,7 @@
 					A Neural Network (NN) is a deep learning model used to approximate some function $f$. Throught a learning algorithm it is able to recognize pattern in data. There are different types of NN depending on task that you want to solve. For example Convolution Neural Network (CNN) are often used for image classification, Recurrent Neural Network (RNN) are used for speech recognition, ecc.... From these examples you can understand that NN are often used with unstructural data (images, audio, text) that are more difficult for a computer to understand their meaning. However in this article we'll see the standard NN used more for structural data, for example for predict the house's prices from the house features.
 				</div>
 				
-				<h2>Architeture of Standard NN and mathematical notation</h2>
+				<h2>Architeture of a Standard NN and mathematical notation</h2>
 				<div class="text">
 					A NN is composed from layers $l$ and nodes $a$. In the figure below you see an examples of NN:
 					
@@ -162,13 +162,13 @@
 				
 				<h2>Summary</h2>
 				<div class="text">
-				So we have seen the architecture of a standard NN and how it can "learn" for solve some tasks. The forward propagation and backpropagation step must be execute iterative so that we can reduce the error compute by loss function. Moreover, for the first step, it is important initialize the parameters $W$ randomly otherwise the network doesn't work. So we can summarise as following:
+				So we have seen the architecture of a standard NN and how it can "learn" to solve some tasks. The forward propagation and backpropagation step must be execute iterative so that we can reduce the error compute by the loss function. Moreover, for the first step, it is important initialize the parameters $W$ randomly otherwise the network doesn't work. So we can summarise as following:
 					
 				<ul>
 					<li>Inizialize all parameters $W_l$ randomly (the $b_l$ can be set with zeros).</li>
 				</ul>
 					
-				After that the neural network can execute the following step $N$ times:
+				After that the neural network can execute the following steps $N$ times:
 					
 				<ol>
 					<li>Compute the output of NN throught forward propagation.</li>
@@ -176,7 +176,8 @@
 					<li>Update the parameters $W_l$ and $b_l$ thourght the backpropagation algorithm.</li>
 				</ol>	
 				
-				This was only a taste of NN. The are many other stuff to teach: how choose the hyperparameters (number of layers, number of nodes, learning rate, activation function and number of iterations), what other neural networks exist? How can you choose the right NN? And so on. I hope that this article can help you to have a better understanding of NN. If you found some error or there are stuff that aren't clear you can write me an email. You can find my email on my site by clicking on my name at the top of this page. Thank you! 
+				This was only a taste of NN. The are many other stuff to teach: how to choose hyperparameters (number of layers, number of nodes, learning rate, activation function and number of iterations), what other neural networks exist? How can you choose the right NN? And so on. I hope that this article can help you to have a better understanding of NN. 
+				<br><br>If you found some error or there are stuff that aren't clear you can write me an email. You can find my email on my site by clicking on my name at the top of this page. Thank you! 
 				</div>
 			
 				<div class="bibliography">
