@@ -174,12 +174,12 @@ nav>span {
 /**********************************************************
 SECTION CSS
 ***********************************************************/
-#section1, #section3, #section4, #section5{
+#section4, #section5{
 	height: 100vh; /* 100% of the viewport */
 	min-height: 1080px;
 }
 
-#section2{
+#section1, #section2{
 	height: 150vh;
 	min-height: 1620px;
 }
